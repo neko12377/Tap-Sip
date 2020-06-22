@@ -222,8 +222,8 @@ const GoBack = styled(Button)`
 function annotation({
   addItem, goback, shoppingList, temporariness, itemNumbers, customerName, customizedDetail, pay,
 }) {
-  function ordered(name, price, numbers, customer, detail, isPay) {
-    addItem(name, price, numbers, customer, detail, isPay);
+  function ordered(name, price, numbers, customer, detail, isPay, color) {
+    addItem(name, price, numbers, customer, detail, isPay, color);
   }
 
   function plus(cur) {
@@ -248,12 +248,11 @@ function annotation({
       : 0;
   }
 
-  const name = shoppingList[0].temp[0];
-  const price = shoppingList[0].temp[1];
-  const { numbers } = shoppingList[0];
-  const { customer } = shoppingList[0];
-  const { detail } = shoppingList[0];
-  const { isPay } = shoppingList[0];
+  const [name, price] = shoppingList[0].temp;
+  const {
+    numbers, customer, detail, isPay, color,
+  } = shoppingList[0];
+
 
   const Option = useCallback(() => {
     const amount = 31;
@@ -291,9 +290,9 @@ function annotation({
             </InfoColumn>
             <InfoColumn>
               <p>是否付款</p>
-              <Radio type="radio" id="Yes" name="paidOrNot" value="是" onChange={(e) => pay(e.target.value)} />
+              <Radio type="radio" id="Yes" name="paidOrNot" value="是" onChange={(e) => pay(e.target.value, 'green')} />
               <label htmlFor="Yes">是</label>
-              <Radio type="radio" id="No" name="paidOrNot" value="否" onChange={(e) => pay(e.target.value)} />
+              <Radio type="radio" id="No" name="paidOrNot" value="否" onChange={(e) => pay(e.target.value, 'red')} />
               <label htmlFor="No">否</label>
             </InfoColumn>
           </CustomerInfo>
@@ -325,12 +324,12 @@ function annotation({
           <FooterRight>
             <PutInCart
               onClick={() => {
-                ordered(name, price, numbers, customer, detail, isPay);
+                ordered(name, price, numbers, customer, detail, isPay, color);
                 goback(false);
                 temporariness('', '');
                 customerName('');
                 customizedDetail('');
-                pay('');
+                pay('', '');
               }}
             >
               加入購物車
@@ -342,7 +341,7 @@ function annotation({
                 itemNumbers(0);
                 customerName('');
                 customizedDetail('');
-                pay('');
+                pay('', '');
               }}
             >
               返回

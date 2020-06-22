@@ -5,11 +5,14 @@ const initState = [{
   numbers: 1,
   customer: '',
   detail: '',
-  isPay: '',
+  isPay: '否',
+  color: 'red',
 }];
 
 const shoppingList = (state = initState, actions) => {
   let stateCopy = { ...state };
+  let yesOrNo;
+  let greenOrRed;
   switch (actions.type) {
     case 'AddItem':
       stateCopy = actions.numbers > 0
@@ -24,6 +27,7 @@ const shoppingList = (state = initState, actions) => {
             customer: actions.customer,
             detail: actions.detail,
             isPay: actions.isPay,
+            color: actions.color,
           },
         ]
         : state;
@@ -62,13 +66,26 @@ const shoppingList = (state = initState, actions) => {
     case 'IsPay':
       return [
         {
-          ...state[0], isPay: actions.isPay,
+          ...state[0], isPay: actions.isPay, color: actions.color,
         }, ...state.slice(1),
       ];
     case 'DeleteThisItem':
       return [
         ...state.slice(0, actions.itemIndex),
         ...state.slice(actions.itemIndex + 1),
+      ];
+    case 'PayOrNot':
+      if (state[actions.index].isPay === '是') {
+        yesOrNo = '否';
+        greenOrRed = 'red';
+      } else {
+        yesOrNo = '是';
+        greenOrRed = 'green';
+      }
+      return [
+        ...state.slice(0, actions.index),
+        { ...state[actions.index], isPay: yesOrNo, color: greenOrRed },
+        ...state.slice(actions.index + 1),
       ];
     default:
       return state;

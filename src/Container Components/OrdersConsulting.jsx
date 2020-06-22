@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { connect } from 'react-redux';
+import * as actionCreators from '../Actions';
 
 const MainContent = styled.section`
   display: flex;
@@ -10,6 +11,7 @@ const MainContent = styled.section`
   width: 100%;
   flex-wrap: wrap;
 `;
+
 const ItemList = styled.li`
   display: flex;
   flex-direction: column;
@@ -23,12 +25,33 @@ const ItemList = styled.li`
   border-radius: 1rem;
   background-color: #102042;
 `;
-const Customer = styled.div`
+
+const CustomerNPay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 33%;
+`;
+
+const Customer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+`;
+
+const Pay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+  background-color: ${({ green }) => (green ? '#74b476' : '#e45466')};
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
 `;
 
 const Merchandise = styled(Customer)`
@@ -38,16 +61,30 @@ const Merchandise = styled(Customer)`
 const CustomizedDetail = styled(Customer)`
 `;
 
-function ordersConsulting({ shoppingList }) {
+function ordersConsulting({ shoppingList, payOrNot }) {
   return (
     <MainContent>
       {
         shoppingList.map(
-          (item) => (
+          (item, index) => (
             <ItemList key={`${item.item}${item.index}`}>
-              <Customer>
-                {`訂購人：${item.customer} 付款： ${item.isPay}`}
-              </Customer>
+              <CustomerNPay>
+                <Customer>
+                  {`訂購人：${item.customer}`}
+                </Customer>
+                {item.color === 'red'
+                && (
+                <Pay onClick={() => payOrNot(index)}>
+                  {`付款：${item.isPay}`}
+                </Pay>
+                )}
+                { item.color === 'green'
+                && (
+                <Pay green onClick={() => payOrNot(index)}>
+                  {`付款：${item.isPay}`}
+                </Pay>
+                )}
+              </CustomerNPay>
               <Merchandise>
                 {`${item.item} $${item.price}`}
               </Merchandise>
@@ -64,4 +101,4 @@ function ordersConsulting({ shoppingList }) {
 
 const mapStateToProps = (state) => ({ shoppingList: state.shoppingList });
 
-export default connect(mapStateToProps)(ordersConsulting);
+export default connect(mapStateToProps, actionCreators)(ordersConsulting);

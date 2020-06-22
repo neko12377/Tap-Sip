@@ -1,6 +1,6 @@
 export const addItem = (
   name, price, numbers, customer,
-  detail, isPay,
+  detail, isPay, color,
 ) => ({
   type: 'AddItem',
   name,
@@ -9,6 +9,7 @@ export const addItem = (
   customer,
   detail,
   isPay,
+  color,
 });
 
 export const delAllItem = () => ({
@@ -45,12 +46,18 @@ export const customizedDetail = (detail) => ({
   detail,
 });
 
-export const pay = (isPay) => ({
+export const pay = (isPay, color) => ({
   type: 'IsPay',
   isPay,
+  color,
 });
 
 export const deleteThisItem = (itemIndex) => ({
   type: 'DeleteThisItem',
   itemIndex,
+});
+
+export const payOrNot = (index) => ({
+  type: 'PayOrNot',
+  index,
 });
