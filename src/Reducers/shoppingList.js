@@ -66,7 +66,6 @@ const shoppingList = (state = initState, actions) => {
         }, ...state.slice(1),
       ];
     case 'DeleteThisItem':
-      console.log(state);
       return [
         ...state.slice(0, actions.itemIndex),
         ...state.slice(actions.itemIndex + 1),

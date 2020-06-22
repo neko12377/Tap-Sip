@@ -169,7 +169,9 @@ const CleanAll = styled(basicButton)`
   color: white;
 `;
 
-function shoppingCart({ shoppingList, delAllItem, confirmOrders, deleteThisItem }) {
+function shoppingCart({
+  shoppingList, delAllItem, confirmOrders, deleteThisItem,
+}) {
   function del() {
     delAllItem();
   }
