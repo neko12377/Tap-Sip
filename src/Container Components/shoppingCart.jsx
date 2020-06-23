@@ -196,7 +196,7 @@ const CleanAll = styled(basicButton)`
 `;
 
 function shoppingCart({
-  shoppingList, delAllItem, confirmOrders, deleteThisItem,
+  shoppingList, delAllItem, confirmOrders, deleteThisItem, phoneSizeCart
 }) {
   function del() {
     delAllItem();
@@ -219,7 +219,7 @@ function shoppingCart({
         <Title>
           <TitleContent>
             Cart
-            <X>
+            <X onClick={phoneSizeCart}>
               X
             </X>
           </TitleContent>
