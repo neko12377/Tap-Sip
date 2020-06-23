@@ -196,7 +196,7 @@ const CleanAll = styled(basicButton)`
 `;
 
 function shoppingCart({
-  shoppingList, delAllItem, confirmOrders, deleteThisItem, phoneSizeCart
+  shoppingList, delAllItem, confirmOrders, deleteThisItem, phoneSizeCart,
 }) {
   function del() {
     delAllItem();

@@ -91,7 +91,31 @@ const PhoneSizeCart = styled.div`
   }
 `;
 
+const HowManyItemsInCart = styled.div`
+  @media (max-width: 576px){
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.1rem;
+    color: white;
+  }
+`;
+
 function ordersPage({ shoppingList, phoneSizeCart }) {
+  const itemAmount = shoppingList.map(
+    (listItem, index) => index > 0 && parseInt(listItem.numbers, 10),
+  ).slice(1);
+
+  const accumulator = (pre, cur) => pre + cur;
+  const sum = itemAmount.reduce(accumulator, 0);
+
   return (
     <MainContent>
       <MiddleContent>
@@ -103,6 +127,9 @@ function ordersPage({ shoppingList, phoneSizeCart }) {
       <PhoneSizeBottomDecoration>
         <PhoneSizeCart onClick={phoneSizeCart}>
           <FontAwesomeIcon icon={faShoppingCart} />
+          <HowManyItemsInCart>
+            {sum}
+          </HowManyItemsInCart>
         </PhoneSizeCart>
       </PhoneSizeBottomDecoration>
     </MainContent>
