@@ -13,6 +13,9 @@ const NavLink = styled.nav`
   overflow: scroll;
   border-bottom: 3px solid whitesmoke;
   border-radius: 1rem;
+  @media (max-width: 576px) {
+    margin: 0;
+  }
 `;
 
 const Category = styled(Link)`
@@ -32,6 +35,10 @@ const Category = styled(Link)`
   &:visited {
     color: wheat;
   }
+  @media (max-width: 576px) {
+    width: 33%;
+    min-width: 33%;
+  }
 `;
 
 const InitialPage = styled.div`
@@ -46,6 +53,10 @@ const InitialPage = styled.div`
   border: 1px solid wheat;
   border-radius: 1rem;
   background-color: #102042;
+  @media (max-width: 576px) {
+    width: 100%;
+    margin: 1rem 0.5rem;
+  }
 `;
 
 export default function merchandiseList() {

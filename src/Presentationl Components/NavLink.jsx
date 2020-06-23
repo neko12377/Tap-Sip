@@ -15,6 +15,9 @@ const NavBar = styled.ul`
     background-color: #102042;
     border-radius: 1rem;
   }
+  @media (max-width: 321px) {
+    font-size: 1rem;
+  }
 `;
 const NavLink = styled(Link)`
   display: flex;

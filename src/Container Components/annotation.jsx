@@ -19,6 +19,7 @@ const AnnotationBlock = styled.div`
   border: 1px solid wheat;
   border-radius: 1rem;
   background-color: #11111188;
+  z-index: 3;
 `;
 
 const Annotation = styled.div`
@@ -32,6 +33,9 @@ const Annotation = styled.div`
   background-color: #243150;
   border-radius: 1rem;
   border: 1px solid wheat;
+  @media (max-width: 576px) {
+    min-width: 320px;
+  }
 `;
 
 const Main = styled.div`
@@ -39,6 +43,10 @@ const Main = styled.div`
   width: 100%;
   height: 85%;
   padding: 0.5rem 1rem 0.5rem 1rem;
+  @media (max-width: 576px) {
+    flex-direction: column;
+    height: 80%;
+  }
 `;
 
 const Introduction = styled.div`
@@ -49,6 +57,12 @@ const Introduction = styled.div`
   width: 45%;
   height: 100%;
   border-right: solid 1px wheat;
+  @media (max-width: 576px) {
+    width: 100%;
+    border-right: 0;
+    border-bottom: solid wheat 1px;
+    height: 55%;
+  }
 `;
 
 const Image = styled.div`
@@ -82,6 +96,12 @@ const CustomerInfo = styled(Introduction)`
   border: none;
   align-items: flex-start;
   padding-left: 2%;
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 45%;
+    border-right: 0;
+    border-bottom: 0;
+  }
 `;
 
 const InfoColumn = styled.div`
@@ -105,6 +125,12 @@ const InfoColumn = styled.div`
     padding: 0;
     padding-right: 2%;
   };
+  @media (max-width: 576px) {
+    height: 25%;
+    & p {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 const Customization = styled.input`
@@ -135,6 +161,10 @@ const Footer = styled.footer`
   height: 15%;
   border-top: 1px solid wheat;
   padding: 0.5rem;
+  @media (max-width: 576px) {
+    flex-direction: column;
+    height: 20%;
+  }
 `;
 
 const FooterLeft = styled.div`
@@ -143,6 +173,10 @@ const FooterLeft = styled.div`
   align-items: center;
   width: 45%;
   height: 100%;
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const FooterRight = styled.div`
@@ -151,6 +185,10 @@ const FooterRight = styled.div`
   height: 100%;
   padding-left: 1%;
   align-items: center;
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Counter = styled.div`

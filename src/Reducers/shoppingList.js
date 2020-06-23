@@ -7,6 +7,7 @@ const initState = [{
   detail: '',
   isPay: '否',
   color: 'red',
+  phone: false,
 }];
 
 const shoppingList = (state = initState, actions) => {
@@ -86,6 +87,11 @@ const shoppingList = (state = initState, actions) => {
         ...state.slice(0, actions.index),
         { ...state[actions.index], isPay: yesOrNo, color: greenOrRed },
         ...state.slice(actions.index + 1),
+      ];
+    case 'PhoneSizeCart':
+      return [
+        { ...state[0], phone: !state[0].phone },
+        ...state.slice(1),
       ];
     default:
       return state;

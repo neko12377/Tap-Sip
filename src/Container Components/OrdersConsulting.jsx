@@ -9,7 +9,13 @@ const MainContent = styled.section`
   justify-content: center;
   align-items: space-between;
   width: 100%;
+  /* min-width: 1030px; */
   flex-wrap: wrap;
+  position: relative;
+  top: 90px;
+  @media (max-width: 576px) {
+    top: 70px;
+  }
 `;
 
 const ItemList = styled.li`
@@ -24,6 +30,12 @@ const ItemList = styled.li`
   border: wheat 1px solid;
   border-radius: 1rem;
   background-color: #102042;
+  margin: 0 0.25rem;
+  margin-bottom: 0.5rem;
+  @media (max-width: 576px) {
+    width: 90%;
+    font-size: 1.2rem;
+  }
 `;
 
 const CustomerNPay = styled.div`
@@ -72,13 +84,13 @@ function ordersConsulting({ shoppingList, payOrNot }) {
                 <Customer>
                   {`訂購人：${item.customer}`}
                 </Customer>
-                {item.color === 'red'
+                {(item.color === 'red' || item.color === '')
                 && (
                 <Pay onClick={() => payOrNot(index)}>
                   {`付款：${item.isPay}`}
                 </Pay>
                 )}
-                { item.color === 'green'
+                {item.color === 'green'
                 && (
                 <Pay green onClick={() => payOrNot(index)}>
                   {`付款：${item.isPay}`}

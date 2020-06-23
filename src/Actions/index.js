@@ -61,3 +61,7 @@ export const payOrNot = (index) => ({
   type: 'PayOrNot',
   index,
 });
+
+export const phoneSizeCart = () => ({
+  type: 'PhoneSizeCart',
+});

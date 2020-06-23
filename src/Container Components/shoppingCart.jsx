@@ -12,6 +12,10 @@ const Background = styled.section`
   width: 100%;
   height: 100%;
   flex-wrap: wrap;
+  @media (max-width: 576px) {
+    width: 250px;
+    align-items: center;
+  }
 `;
 
 const Cart = styled.div`
@@ -20,10 +24,13 @@ const Cart = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: 500px;
   min-height: 500px;
   max-height: 500px;
   border: 2px solid #e8eff0;
   flex-wrap: wrap;
+  background-color: #102042;
+  border-radius: 0.5rem;
 `;
 
 const Title = styled.div`
@@ -42,6 +49,25 @@ const TitleContent = styled.div`
   font-size: 1.5rem;
   border-bottom: solid 4px #e8eff0;
   border-radius: 8px;
+  position: relative;
+`;
+
+const X = styled.div`
+  display: none;
+  @media (max-width: 576px){
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e45466;
+    border-radius: 50%;
+    position: absolute;
+    right: -20px;
+    top: 8px;
+    font-size: 1.2rem;
+    color: white;
+  }
 `;
 
 const basicButton = styled.button`
@@ -193,6 +219,9 @@ function shoppingCart({
         <Title>
           <TitleContent>
             Cart
+            <X>
+              X
+            </X>
           </TitleContent>
         </Title>
         <MainContent>

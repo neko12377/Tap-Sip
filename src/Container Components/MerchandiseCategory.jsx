@@ -12,6 +12,9 @@ const ItemBlock = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   padding-right: 0.5rem;
+  @media (max-width: 576px) {
+    justify-content: space-between;
+  }
 `;
 
 const Title = styled.div`
@@ -40,6 +43,11 @@ const Items = styled.div`
   cursor: pointer;
   & input {
     width: 50%;
+  }
+  @media (max-width: 576px) {
+    max-width: 47%;
+    min-width: 47%;
+    height: 180px;
   }
 `;
 
