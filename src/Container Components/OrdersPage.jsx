@@ -26,6 +26,7 @@ const MiddleContent = styled.div`
   display: flex;
   width: 77%;
   flex-direction: column;
+  align-items: center;
   @media (max-width: 576px) {
     width: 100%;
     justify-content: center;

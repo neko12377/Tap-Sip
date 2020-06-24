@@ -98,7 +98,7 @@ function ordersConsulting({ shoppingList, payOrNot }) {
                 )}
               </CustomerNPay>
               <Merchandise>
-                {`${item.item} X ${item.numbers} $${item.price * item.numbers}`}
+                {`${item.item}() X ${item.numbers} $${item.price * item.numbers}`}
               </Merchandise>
               <CustomizedDetail>
                 {`${item.detail}`}

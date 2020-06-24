@@ -291,7 +291,7 @@ function annotation({
       : 0;
   }
 
-  const [name, price] = shoppingList[0].temp;
+  const [name, size, price] = shoppingList[0].temp;
   const {
     numbers, customer, detail, isPay, color,
   } = shoppingList[0];
@@ -319,7 +319,7 @@ function annotation({
               暫無圖片
             </Image>
             <Description>
-              {`${name} $${price}`}
+              {`${name}(${size}) $ ${price}`}
             </Description>
           </Introduction>
           <CustomerInfo>

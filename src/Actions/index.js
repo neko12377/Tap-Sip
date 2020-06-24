@@ -25,9 +25,10 @@ export const annotateOfItem = (annotate) => ({
   annotate,
 });
 
-export const temporariness = (name, price) => ({
+export const temporariness = (name, size, price) => ({
   type: 'Temporariness',
   name,
+  size,
   price,
 });
 

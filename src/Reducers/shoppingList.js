@@ -1,7 +1,7 @@
 const initState = [{
   index: 0,
   confirmed: false,
-  temp: ['', ''],
+  temp: ['', '', ''],
   numbers: 1,
   customer: '',
   detail: '',
@@ -47,6 +47,7 @@ const shoppingList = (state = initState, actions) => {
           ...state[0],
           temp: [
             actions.name,
+            actions.size,
             actions.price,
           ],
         }, ...state.slice(1),

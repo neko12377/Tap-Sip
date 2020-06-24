@@ -8,10 +8,11 @@ const NavLink = styled.nav`
   display: flex;
   width: 95%;
   height: 60px;
-  margin: 0 1rem 0 0;
+  margin: 0;
   padding: 0;
   overflow: scroll;
-  border-bottom: 3px solid whitesmoke;
+  border: 3px solid whitesmoke;
+  background-color: #243155;
   border-radius: 1rem;
   @media (max-width: 576px) {
     margin: 0;
@@ -25,19 +26,20 @@ const Category = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: wheat;
+  color: lightblue;
   font-size: 1.5rem;
   text-decoration: none;
   border-radius: 1rem;
+  &:visited {
+    color: lightblue;
+  }
   &:hover {
     background-color: #102042;
-  }
-  &:visited {
     color: wheat;
   }
   @media (max-width: 576px) {
-    width: 33%;
-    min-width: 33%;
+    width: 25%;
+    min-width: 25%;
   }
 `;
 
@@ -63,7 +65,8 @@ export default function merchandiseList() {
   return (
     <>
       <NavLink>
-        <Category to="/ordering/categoryA">
+        {menu.map((shopsArray) => (<Category to={`/ordering/${shopsArray[0]}`}>{shopsArray[0]}</Category>))}
+        {/* <Category to="/ordering/categoryA">
           {menu[0][0]}
         </Category>
         <Category to="/ordering/categoryB">
@@ -83,14 +86,15 @@ export default function merchandiseList() {
         </Category>
         <Category to="/ordering/categoryG">
           {menu[6][0]}
-        </Category>
+        </Category> */}
       </NavLink>
       <Route exact path="/ordering">
         <InitialPage>
           請選擇類別
         </InitialPage>
       </Route>
-      <Route path="/ordering/categoryA">
+      {menu.map((shopsArray, index) => (<Route path={`/ordering/${shopsArray[0]}`}><MerchandiseCategory number={index} /></Route>))}
+      {/* <Route path="/ordering/categoryA">
         <MerchandiseCategory number={0} />
       </Route>
       <Route path="/ordering/categoryB">
@@ -110,7 +114,7 @@ export default function merchandiseList() {
       </Route>
       <Route path="/ordering/categoryG">
         <MerchandiseCategory number={6} />
-      </Route>
+      </Route> */}
     </>
   );
 }

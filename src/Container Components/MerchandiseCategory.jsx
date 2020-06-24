@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import * as actionCreators from '../Actions';
 import Annotation from './annotation';
@@ -8,21 +9,62 @@ import menu from '../menu/menu.json';
 
 const ItemBlock = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  padding-right: 0.5rem;
-  @media (max-width: 576px) {
-    justify-content: space-between;
-  }
+  align-items: center;
 `;
 
 const Title = styled.div`
   display: flex;
   width: 100%;
   font-size: 2rem;
-  padding: 1rem 1rem 1rem 0;
+  padding: 0.5rem 0 0.5rem 0 ;
   justify-content: center;
+`;
+
+const ItemCategory = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 95%;
+  overflow: scroll;
+  height: 3rem;
+  border-bottom: 1px solid wheat;
+  /* border-radius: 1rem; */
+  margin-bottom: 0.5rem;
+  @media (max-width: 576px) {
+    
+  }
+`;
+
+const Categories = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  &:visited {
+    color: lightblue;
+  }
+  &:hover {
+    background-color: #102042;
+    border-radius: 1rem;
+    color: wheat;
+  }
+  @media (max-width: 576px) {
+    min-width: 33%;
+  }
+`;
+
+const ItemsBlock = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
 `;
 
 const Items = styled.div`
@@ -51,6 +93,25 @@ const Items = styled.div`
   }
 `;
 
+const ItemName = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+`;
+
+const ItemImage = styled(ItemName)`
+  height: 50%;
+  width: 90%;
+  border: solid 1px wheat;
+  border-radius: 1rem;
+`;
+
+const ItemDetail = styled(ItemName)`
+  height: 25%;
+`;
+
 function merchandiseCategory({ number, temporariness, itemNumbers }) {
   const [showAnnotationBlock, setAnnotationBlock] = useState(false);
 
@@ -59,25 +120,49 @@ function merchandiseCategory({ number, temporariness, itemNumbers }) {
       <Title>
         {menu[number][0]}
       </Title>
-      {
-        menu[number].map(
-          (item, index) => index > 0
-          && (
-            <Items
-              key={item.name}
-              onClick={() => {
-                setAnnotationBlock(true); temporariness(item.name, item.price); itemNumbers(1);
-              }}
-            >
-              {item.name}
-              <br />
-              {item.size}
-              <br />
-              {item.price}
-            </Items>
-          ),
-        )
-      }
+      <ItemCategory>
+        {
+          menu[number].map(
+            (category, index) => index > 0
+            && (
+              <Categories key={`${category[0]}`} to={`/ordering/${menu[number][0]}/${category[0]}`}>
+                {category[0]}
+              </Categories>
+            ),
+          )
+        }
+      </ItemCategory>
+      <ItemsBlock>
+        {
+          menu[number].map(
+            (itemArray, index) => index > 0
+            && itemArray.map(
+              (item, arrayIndex) => arrayIndex > 0
+              && (
+                <Route key={`${item.name}(${item.size})`} path={`/ordering/${menu[number][0]}/${itemArray[0]}`}>
+                  <Items
+                    onClick={() => {
+                      setAnnotationBlock(true);
+                      temporariness(item.name, item.size, item.price); itemNumbers(1);
+                    }}
+                  >
+                    <ItemName>
+                      {item.name}
+                    </ItemName>
+                    <ItemImage>
+                      暫無圖片
+                    </ItemImage>
+                    <ItemDetail>
+                      {`(${item.size}) ${item.price}`}
+                    </ItemDetail>
+                  </Items>
+                </Route>
+              ),
+            ),
+            (itemArray) => console.log('%cHERE', 'color:hotpink; font-size: 2rem;', itemArray, number),
+          )
+        }
+      </ItemsBlock>
       {
         showAnnotationBlock
         && (
