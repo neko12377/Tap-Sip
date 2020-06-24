@@ -194,7 +194,7 @@ const CleanAll = styled(basicButton)`
   background-color: #ff5466;
   color: white;
   @media (max-width: 576px) {
-    font-size: 15px;
+    width: 50%;
   }
 `;
 
