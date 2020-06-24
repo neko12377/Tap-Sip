@@ -70,6 +70,10 @@ function merchandiseCategory({ number, temporariness, itemNumbers }) {
               }}
             >
               {item.name}
+              <br />
+              {item.size}
+              <br />
+              {item.price}
             </Items>
           ),
         )
