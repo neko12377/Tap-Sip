@@ -65,3 +65,8 @@ export const payOrNot = (index) => ({
 export const phoneSizeCart = () => ({
   type: 'PhoneSizeCart',
 });
+
+export const sumOfItems = (sum, next) => ({
+  type: 'SumOfItems',
+  sum: sum + next,
+});

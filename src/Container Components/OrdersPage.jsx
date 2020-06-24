@@ -109,13 +109,6 @@ const HowManyItemsInCart = styled.div`
 `;
 
 function ordersPage({ shoppingList, phoneSizeCart }) {
-  const itemAmount = shoppingList.map(
-    (listItem, index) => index > 0 && parseInt(listItem.numbers, 10),
-  ).slice(1);
-
-  const accumulator = (pre, cur) => pre + cur;
-  const sum = itemAmount.reduce(accumulator, 0);
-
   return (
     <MainContent>
       <MiddleContent>
@@ -128,7 +121,7 @@ function ordersPage({ shoppingList, phoneSizeCart }) {
         <PhoneSizeCart onClick={phoneSizeCart}>
           <FontAwesomeIcon icon={faShoppingCart} />
           <HowManyItemsInCart>
-            {sum}
+            {shoppingList[0].sumOfItems}
           </HowManyItemsInCart>
         </PhoneSizeCart>
       </PhoneSizeBottomDecoration>

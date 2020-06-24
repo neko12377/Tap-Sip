@@ -8,6 +8,7 @@ const initState = [{
   isPay: '否',
   color: 'red',
   phone: false,
+  sumOfItems: 0,
 }];
 
 const shoppingList = (state = initState, actions) => {
@@ -91,6 +92,11 @@ const shoppingList = (state = initState, actions) => {
     case 'PhoneSizeCart':
       return [
         { ...state[0], phone: !state[0].phone },
+        ...state.slice(1),
+      ];
+    case 'SumOfItems':
+      return [
+        { ...state[0], sumOfItems: actions.sum },
         ...state.slice(1),
       ];
     default:

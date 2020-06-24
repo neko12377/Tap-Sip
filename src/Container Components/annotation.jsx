@@ -253,16 +253,21 @@ const PutInCart = styled(Button)`
 `;
 
 const GoBack = styled(Button)`
-  width: 25%;
+  width: 28%;
   background-color: #e45466;
 `;
 
 function annotation({
-  addItem, goback, shoppingList, temporariness, itemNumbers, customerName, customizedDetail, pay,
+  addItem, goback, shoppingList, temporariness,
+  itemNumbers, customerName, customizedDetail, pay, sumOfItems,
 }) {
   function ordered(name, price, numbers, customer, detail, isPay, color) {
     addItem(name, price, numbers, customer, detail, isPay, color);
   }
+
+  const sumArray = shoppingList.map((item, index) => index > 0
+    && parseInt(item.numbers, 10)).slice(1);
+  const sum = sumArray.reduce(((pre, cur) => pre + cur), 0);
 
   function plus(cur) {
     let currentValue = cur;
@@ -368,6 +373,7 @@ function annotation({
                 customerName('');
                 customizedDetail('');
                 pay('', '');
+                sumOfItems(sum, numbers);
               }}
             >
               加入購物車

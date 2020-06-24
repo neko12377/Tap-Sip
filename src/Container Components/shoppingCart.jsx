@@ -193,6 +193,9 @@ const SumContent = styled.div`
 const CleanAll = styled(basicButton)`
   background-color: #ff5466;
   color: white;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
 `;
 
 function shoppingCart({
@@ -202,16 +205,11 @@ function shoppingCart({
     delAllItem();
   }
 
-  const itemAmount = shoppingList.map(
-    (listItem, index) => index > 0 && parseInt(listItem.numbers, 10),
-  ).slice(1);
-
   const priceList = shoppingList.map(
     (listItem, index) => index > 0 && listItem.price * listItem.numbers,
   ).slice(1);
 
-  const accumulator = (pre, cur) => pre + cur;
-  const sum = [itemAmount.reduce(accumulator, 0), priceList.reduce(accumulator, 0)];
+  const sum = [shoppingList[0].sumOfItems, priceList.reduce((pre, cur) => pre + cur, 0)];
 
   return (
     <Background>

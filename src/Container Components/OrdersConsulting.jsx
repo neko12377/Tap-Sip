@@ -40,7 +40,7 @@ const ItemList = styled.li`
 
 const CustomerNPay = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 33%;
@@ -50,7 +50,7 @@ const Customer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 65%;
   height: 100%;
 `;
 
@@ -59,7 +59,7 @@ const Pay = styled.div`
   justify-content: center;
   align-items: center;
   width: 35%;
-  height: 100%;
+  height: 31px;
   background-color: ${({ green }) => (green ? '#74b476' : '#e45466')};
   color: white;
   border-radius: 1rem;
@@ -98,7 +98,7 @@ function ordersConsulting({ shoppingList, payOrNot }) {
                 )}
               </CustomerNPay>
               <Merchandise>
-                {`${item.item} $${item.price}`}
+                {`${item.item} X ${item.numbers} $${item.price * item.numbers}`}
               </Merchandise>
               <CustomizedDetail>
                 {`${item.detail}`}
