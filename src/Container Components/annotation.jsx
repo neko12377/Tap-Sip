@@ -104,6 +104,7 @@ const CustomerInfo = styled(Introduction)`
   @media (max-width: 576px) {
     width: 100%;
     height: 45%;
+    min-width: 45%;
     border-right: 0;
     border-bottom: 0;
   }
