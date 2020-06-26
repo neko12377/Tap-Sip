@@ -390,13 +390,17 @@ function annotation({
               </SNITitle>
               <SugarChoices>
                 {sugarList.map(
-                  (sugarCategory) => (
-                    <Sugar
-                      onClick={() => alterSugar(sugarCategory)}
-                    >
-                      {sugarCategory}
-                    </Sugar>
-                  ),
+                  (sugarCategory, index) => {
+                    const sIndex = index;
+                    return (
+                      <Sugar
+                        key={`${sugarCategory}${sIndex}`}
+                        onClick={() => alterSugar(sugarCategory)}
+                      >
+                        {sugarCategory}
+                      </Sugar>
+                    );
+                  },
                 )}
               </SugarChoices>
             </SugarBox>
@@ -406,13 +410,17 @@ function annotation({
               </SNITitle>
               <SugarChoices>
                 {iceList.map(
-                  (iceCategory) => (
-                    <Ice
-                      onClick={() => alterIce(iceCategory)}
-                    >
-                      {iceCategory}
-                    </Ice>
-                  ),
+                  (iceCategory, index) => {
+                    const iIndex = index;
+                    return (
+                      <Ice
+                        key={`${iceCategory}${iIndex}`}
+                        onClick={() => alterIce(iceCategory)}
+                      >
+                        {iceCategory}
+                      </Ice>
+                    );
+                  },
                 )}
               </SugarChoices>
             </SugarBox>
