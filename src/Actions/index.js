@@ -1,9 +1,10 @@
 export const addItem = (
-  name, price, numbers, customer,
+  name, size, price, numbers, customer,
   detail, isPay, color,
 ) => ({
   type: 'AddItem',
   name,
+  size,
   price,
   numbers,
   customer,

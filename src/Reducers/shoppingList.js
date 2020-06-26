@@ -24,6 +24,7 @@ const shoppingList = (state = initState, actions) => {
           {
             index: state.slice(-1)[0].index + 1,
             item: actions.name,
+            size: actions.size,
             price: actions.price,
             numbers: actions.numbers,
             customer: actions.customer,

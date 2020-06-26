@@ -261,8 +261,8 @@ function annotation({
   addItem, goback, shoppingList, temporariness,
   itemNumbers, customerName, customizedDetail, pay, sumOfItems,
 }) {
-  function ordered(name, price, numbers, customer, detail, isPay, color) {
-    addItem(name, price, numbers, customer, detail, isPay, color);
+  function ordered(name, size, price, numbers, customer, detail, isPay, color) {
+    addItem(name, size, price, numbers, customer, detail, isPay, color);
   }
 
   const sumArray = shoppingList.map((item, index) => index > 0
@@ -367,7 +367,7 @@ function annotation({
           <FooterRight>
             <PutInCart
               onClick={() => {
-                ordered(name, price, numbers, customer, detail, isPay, color);
+                ordered(name, size, price, numbers, customer, detail, isPay, color);
                 goback(false);
                 temporariness('', '');
                 customerName('');

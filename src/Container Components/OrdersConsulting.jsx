@@ -47,7 +47,7 @@ const CustomerNPay = styled.div`
 
 const Customer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 65%;
   height: 100%;
@@ -67,10 +67,13 @@ const Pay = styled.div`
 `;
 
 const Merchandise = styled(Customer)`
+  width: 95%;
+  justify-content: center;
   color: #5cfcd1;
 `;
 
 const CustomizedDetail = styled(Customer)`
+  justify-content: center;
 `;
 
 const NotThingInCartYet = styled(ItemList)`
@@ -89,6 +92,7 @@ function ordersConsulting({ shoppingList, payOrNot }) {
           ? shoppingList.map(
             (item, index) => (
               <ItemList key={`${item.item}${item.index}`}>
+                {console.log(item)}
                 <CustomerNPay>
                   <Customer>
                     {`訂購人：${item.customer}`}
@@ -107,7 +111,7 @@ function ordersConsulting({ shoppingList, payOrNot }) {
                   )}
                 </CustomerNPay>
                 <Merchandise>
-                  {`${item.item}() X ${item.numbers} $${item.price * item.numbers}`}
+                  {`${item.item}(${item.size ? item.size : '>_0'}) X ${item.numbers} $${item.price * item.numbers}`}
                 </Merchandise>
                 <CustomizedDetail>
                   {`${item.detail}`}
