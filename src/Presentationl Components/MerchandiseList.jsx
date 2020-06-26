@@ -91,7 +91,7 @@ const OptionOfShops = styled(Link)`
     z-index: 0;
   }
   @media (max-width: 576px) {
-    min-width: 33%;
+    min-width: 30%;
 
   }
 `;
