@@ -113,7 +113,7 @@ function ordersConsulting({ shoppingList, payOrNot }) {
                   {`${item.item}(${item.size ? item.size : '>_0'}) X ${item.numbers} $${item.price * item.numbers}`}
                 </Merchandise>
                 <CustomizedDetail>
-                  {`${item.detail}`}
+                  {`${item.sugar}/${item.ice}`}
                 </CustomizedDetail>
               </ItemList>
             ),

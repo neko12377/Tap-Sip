@@ -151,7 +151,8 @@ function merchandiseCategory({
                         key={`${item.name} ${item.size}`}
                         onClick={() => {
                           setAnnotationBlock(true);
-                          temporariness(item.name, item.size, item.price); itemNumbers(1);
+                          temporariness(item.name, item.size, item.price);
+                          itemNumbers(1);
                         }}
                       >
                         <ItemName>

@@ -9,6 +9,8 @@ const initState = [{
   color: 'red',
   phone: false,
   sumOfItems: 0,
+  sugar: '',
+  ice: '',
 }];
 
 const shoppingList = (state = initState, actions) => {
@@ -26,6 +28,8 @@ const shoppingList = (state = initState, actions) => {
             item: actions.name,
             size: actions.size,
             price: actions.price,
+            sugar: actions.sugar,
+            ice: actions.ice,
             numbers: actions.numbers,
             customer: actions.customer,
             detail: actions.detail,
@@ -99,6 +103,16 @@ const shoppingList = (state = initState, actions) => {
     case 'SumOfItems':
       return [
         { ...state[0], sumOfItems: actions.sum },
+        ...state.slice(1),
+      ];
+    case 'AlterSugar':
+      return [
+        { ...state[0], sugar: actions.sugar },
+        ...state.slice(1),
+      ];
+    case 'AlterIce':
+      return [
+        { ...state[0], ice: actions.ice },
         ...state.slice(1),
       ];
     default:

@@ -89,13 +89,18 @@ const Description = styled.div`
   border-radius: 0.5rem;
   border: solid wheat 1px;
   font-size: 1.2rem;
+  @media (max-width: 576px) {
+    height: 30%;
+  }
 `;
 
 const CustomerInfo = styled(Introduction)`
   width: 55%;
   border: none;
+  justify-content: space-between;
   align-items: flex-start;
   padding-left: 2%;
+  overflow: scroll;
   @media (max-width: 576px) {
     width: 100%;
     height: 45%;
@@ -104,12 +109,62 @@ const CustomerInfo = styled(Introduction)`
   }
 `;
 
+const SugarBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+
+const SNITitle = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-bottom: 1px solid white;
+  border-radius: 0 0 0 1rem;
+  font-size: 1.25rem;
+`;
+
+const SugarChoices = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Sugar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.6%;
+  height: 70px;
+  margin-bottom: 0.25rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: royalblue 0 6px 6px;
+  }
+`;
+
+const Ice = styled(Sugar)`
+  width: 20%;
+`;
+
 const InfoColumn = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 15%;
+  min-height: 15%;
   padding-left: 2%;
   margin-bottom: 2%;
   border-radius: 1rem;
@@ -126,7 +181,7 @@ const InfoColumn = styled.div`
     padding-right: 2%;
   };
   @media (max-width: 576px) {
-    height: 25%;
+    min-height: 25%;
     & p {
       font-size: 0.8rem;
     }
@@ -257,12 +312,16 @@ const GoBack = styled(Button)`
   background-color: #e45466;
 `;
 
+const sugarList = ['無糖', '微糖', '少糖', '半糖', '8分糖', '全糖'];
+const iceList = ['完全去冰', '去冰', '微冰', '少冰', '正常冰'];
+
 function annotation({
   addItem, goback, shoppingList, temporariness,
   itemNumbers, customerName, customizedDetail, pay, sumOfItems,
+  alterSugar, alterIce,
 }) {
-  function ordered(name, size, price, numbers, customer, detail, isPay, color) {
-    addItem(name, size, price, numbers, customer, detail, isPay, color);
+  function ordered(name, size, price, sugar, ice, numbers, customer, detail, isPay, color) {
+    addItem(name, size, price, sugar, ice, numbers, customer, detail, isPay, color);
   }
 
   const sumArray = shoppingList.map((item, index) => index > 0
@@ -293,7 +352,7 @@ function annotation({
 
   const [name, size, price] = shoppingList[0].temp;
   const {
-    numbers, customer, detail, isPay, color,
+    numbers, customer, detail, isPay, color, sugar, ice,
   } = shoppingList[0];
 
 
@@ -320,9 +379,43 @@ function annotation({
             </Image>
             <Description>
               {`${name}(${size}) $ ${price}`}
+              <br />
+              {`${shoppingList[0].sugar}/${shoppingList[0].ice}`}
             </Description>
           </Introduction>
           <CustomerInfo>
+            <SugarBox>
+              <SNITitle>
+                甜度
+              </SNITitle>
+              <SugarChoices>
+                {sugarList.map(
+                  (sugarCategory) => (
+                    <Sugar
+                      onClick={() => alterSugar(sugarCategory)}
+                    >
+                      {sugarCategory}
+                    </Sugar>
+                  ),
+                )}
+              </SugarChoices>
+            </SugarBox>
+            <SugarBox>
+              <SNITitle>
+                冰塊
+              </SNITitle>
+              <SugarChoices>
+                {iceList.map(
+                  (iceCategory) => (
+                    <Ice
+                      onClick={() => alterIce(iceCategory)}
+                    >
+                      {iceCategory}
+                    </Ice>
+                  ),
+                )}
+              </SugarChoices>
+            </SugarBox>
             <InfoColumn>
               <p>訂購人</p>
               <Customization placeholder="Name" onChange={(e) => customerName(e.target.value)} />
@@ -367,13 +460,18 @@ function annotation({
           <FooterRight>
             <PutInCart
               onClick={() => {
-                ordered(name, size, price, numbers, customer, detail, isPay, color);
+                ordered(
+                  name, size, price, sugar, ice, numbers,
+                  customer, detail, isPay, color,
+                );
                 goback(false);
-                temporariness('', '');
+                temporariness('', '', '');
                 customerName('');
                 customizedDetail('');
                 pay('', '');
                 sumOfItems(sum, numbers);
+                alterSugar('');
+                alterIce('');
               }}
             >
               加入購物車
@@ -381,7 +479,7 @@ function annotation({
             <GoBack
               onClick={() => {
                 goback(false);
-                temporariness('', '');
+                temporariness('', '', '');
                 itemNumbers(0);
                 customerName('');
                 customizedDetail('');

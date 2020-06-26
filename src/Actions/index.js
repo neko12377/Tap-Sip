@@ -1,11 +1,13 @@
 export const addItem = (
-  name, size, price, numbers, customer,
+  name, size, price, sugar, ice, numbers, customer,
   detail, isPay, color,
 ) => ({
   type: 'AddItem',
   name,
   size,
   price,
+  sugar,
+  ice,
   numbers,
   customer,
   detail,
@@ -71,4 +73,14 @@ export const phoneSizeCart = () => ({
 export const sumOfItems = (sum, next) => ({
   type: 'SumOfItems',
   sum: sum + next,
+});
+
+export const alterSugar = (sugar) => ({
+  type: 'AlterSugar',
+  sugar,
+});
+
+export const alterIce = (ice) => ({
+  type: 'AlterIce',
+  ice,
 });
