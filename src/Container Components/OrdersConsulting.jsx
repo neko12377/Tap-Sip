@@ -9,7 +9,6 @@ const MainContent = styled.section`
   justify-content: center;
   align-items: space-between;
   width: 100%;
-  /* min-width: 1030px; */
   flex-wrap: wrap;
   position: relative;
   top: 90px;
@@ -52,6 +51,7 @@ const Customer = styled.div`
   align-items: center;
   width: 65%;
   height: 100%;
+  margin: 0.25rem 0;
 `;
 
 const Pay = styled.div`
@@ -73,39 +73,53 @@ const Merchandise = styled(Customer)`
 const CustomizedDetail = styled(Customer)`
 `;
 
+const NotThingInCartYet = styled(ItemList)`
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10px;
+`;
+
 function ordersConsulting({ shoppingList, payOrNot }) {
   return (
     <MainContent>
       {
-        shoppingList.map(
-          (item, index) => (
-            <ItemList key={`${item.item}${item.index}`}>
-              <CustomerNPay>
-                <Customer>
-                  {`訂購人：${item.customer}`}
-                </Customer>
-                {(item.color === 'red' || item.color === '')
-                && (
-                <Pay onClick={() => payOrNot(index)}>
-                  {`付款：${item.isPay}`}
-                </Pay>
-                )}
-                {item.color === 'green'
-                && (
-                <Pay green onClick={() => payOrNot(index)}>
-                  {`付款：${item.isPay}`}
-                </Pay>
-                )}
-              </CustomerNPay>
-              <Merchandise>
-                {`${item.item}() X ${item.numbers} $${item.price * item.numbers}`}
-              </Merchandise>
-              <CustomizedDetail>
-                {`${item.detail}`}
-              </CustomizedDetail>
-            </ItemList>
-          ),
-        ).slice(1)
+        shoppingList.length > 1
+          ? shoppingList.map(
+            (item, index) => (
+              <ItemList key={`${item.item}${item.index}`}>
+                <CustomerNPay>
+                  <Customer>
+                    {`訂購人：${item.customer}`}
+                  </Customer>
+                  {(item.color === 'red' || item.color === '')
+                  && (
+                  <Pay onClick={() => payOrNot(index)}>
+                    {`付款：${item.isPay}`}
+                  </Pay>
+                  )}
+                  {item.color === 'green'
+                  && (
+                  <Pay green onClick={() => payOrNot(index)}>
+                    {`付款：${item.isPay}`}
+                  </Pay>
+                  )}
+                </CustomerNPay>
+                <Merchandise>
+                  {`${item.item}() X ${item.numbers} $${item.price * item.numbers}`}
+                </Merchandise>
+                <CustomizedDetail>
+                  {`${item.detail}`}
+                </CustomizedDetail>
+              </ItemList>
+            ),
+          ).slice(1)
+          : (
+            <NotThingInCartYet>
+              還沒有點東西喔
+            </NotThingInCartYet>
+          )
       }
     </MainContent>
   );

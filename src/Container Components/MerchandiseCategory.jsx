@@ -125,7 +125,10 @@ function merchandiseCategory({ number, temporariness, itemNumbers }) {
           menu[number].map(
             (category, index) => index > 0
             && (
-              <Categories key={`${category[0]}`} to={`/ordering/${menu[number][0]}/${category[0]}`}>
+              <Categories
+                key={`${category[0]}`}
+                to={`/ordering/${menu[number][0]}/${category[0]}`}
+              >
                 {category[0]}
               </Categories>
             ),
@@ -136,30 +139,37 @@ function merchandiseCategory({ number, temporariness, itemNumbers }) {
         {
           menu[number].map(
             (itemArray, index) => index > 0
-            && itemArray.map(
-              (item, arrayIndex) => arrayIndex > 0
-              && (
-                <Route key={`${item.name}(${item.size})`} path={`/ordering/${menu[number][0]}/${itemArray[0]}`}>
-                  <Items
-                    onClick={() => {
-                      setAnnotationBlock(true);
-                      temporariness(item.name, item.size, item.price); itemNumbers(1);
-                    }}
-                  >
-                    <ItemName>
-                      {item.name}
-                    </ItemName>
-                    <ItemImage>
-                      暫無圖片
-                    </ItemImage>
-                    <ItemDetail>
-                      {`(${item.size}) ${item.price}`}
-                    </ItemDetail>
-                  </Items>
-                </Route>
-              ),
+            && (
+              <Route
+                key={`${itemArray[0]}`}
+                path={`/ordering/${menu[number][0]}/${itemArray[0]}`}
+              >
+                {
+                  itemArray.map(
+                    (item, arrayIndex) => arrayIndex > 0
+                    && (
+                      <Items
+                        key={`${item.name} ${item.size}`}
+                        onClick={() => {
+                          setAnnotationBlock(true);
+                          temporariness(item.name, item.size, item.price); itemNumbers(1);
+                        }}
+                      >
+                        <ItemName>
+                          {item.name}
+                        </ItemName>
+                        <ItemImage>
+                          暫無圖片
+                        </ItemImage>
+                        <ItemDetail>
+                          {`(${item.size}) ${item.price}`}
+                        </ItemDetail>
+                      </Items>
+                    ),
+                  )
+                }
+              </Route>
             ),
-            (itemArray) => console.log('%cHERE', 'color:hotpink; font-size: 2rem;', itemArray, number),
           )
         }
       </ItemsBlock>

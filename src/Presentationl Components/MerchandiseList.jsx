@@ -11,8 +11,8 @@ const NavLink = styled.nav`
   margin: 0;
   padding: 0;
   overflow: scroll;
-  border: 3px solid whitesmoke;
   background-color: #243155;
+  border: 3px solid whitesmoke;
   border-radius: 1rem;
   @media (max-width: 576px) {
     margin: 0;
@@ -20,16 +20,16 @@ const NavLink = styled.nav`
 `;
 
 const Category = styled(Link)`
-  width: 20%;
-  min-width: 20%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 20%;
+  min-width: 20%;
+  height: 100%;
+  border-radius: 1rem;
   color: lightblue;
   font-size: 1.5rem;
   text-decoration: none;
-  border-radius: 1rem;
   &:visited {
     color: lightblue;
   }
@@ -45,76 +45,91 @@ const Category = styled(Link)`
 
 const InitialPage = styled.div`
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   width: 90%;
-  height: 300px;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   font-size: 2rem;
   padding: 1rem;
   margin: 1rem;
   border: 1px solid wheat;
   border-radius: 1rem;
   background-color: #102042;
+  overflow: scroll;
   @media (max-width: 576px) {
     width: 100%;
     margin: 1rem 0.5rem;
   }
 `;
 
+const OptionOfShops = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  min-width: 20%;
+  height: 8rem;
+  margin: 0.1rem;
+  border-bottom: 12px solid #223052;
+  border-left: 1px solid #223052;
+  border-right: 1px solid #aaaaaa55;
+  border-top: 1px solid #aaaaaa55;
+  border-radius: 1rem;
+  color: lightblue;
+  text-decoration: none;
+  z-index: 1;
+  &:hover{
+    transform: translate(0, 4px);
+    border-left: 5px solid #0f1832;
+    border-right: 5px solid #0f1832;
+    border-top: 8px solid #0f1832;
+    border-bottom: 1px solid #0f1832;
+    /* box-shadow: 0 -5px 5px white; */
+    transition: transform 0.8s, border 0.4s, color 0.4s;
+    color: #71b5cc77;
+    z-index: 0;
+  }
+  @media (max-width: 576px) {
+    min-width: 33%;
+
+  }
+`;
+
+
 export default function merchandiseList() {
   return (
     <>
-      <NavLink>
-        {menu.map((shopsArray) => (<Category to={`/ordering/${shopsArray[0]}`}>{shopsArray[0]}</Category>))}
-        {/* <Category to="/ordering/categoryA">
-          {menu[0][0]}
-        </Category>
-        <Category to="/ordering/categoryB">
-          {menu[1][0]}
-        </Category>
-        <Category to="/ordering/categoryC">
-          {menu[2][0]}
-        </Category>
-        <Category to="/ordering/categoryD">
-          {menu[3][0]}
-        </Category>
-        <Category to="/ordering/categoryE">
-          {menu[4][0]}
-        </Category>
-        <Category to="/ordering/categoryF">
-          {menu[5][0]}
-        </Category>
-        <Category to="/ordering/categoryG">
-          {menu[6][0]}
-        </Category> */}
-      </NavLink>
       <Route exact path="/ordering">
         <InitialPage>
-          請選擇類別
+          {menu.map((shopsArray) => (
+            <OptionOfShops
+              key={`OptionOfShops_${shopsArray[0]}`}
+              to={`/ordering/${shopsArray[0]}`}
+            >
+              {shopsArray[0]}
+            </OptionOfShops>
+          ))}
         </InitialPage>
       </Route>
-      {menu.map((shopsArray, index) => (<Route path={`/ordering/${shopsArray[0]}`}><MerchandiseCategory number={index} /></Route>))}
-      {/* <Route path="/ordering/categoryA">
-        <MerchandiseCategory number={0} />
-      </Route>
-      <Route path="/ordering/categoryB">
-        <MerchandiseCategory number={1} />
-      </Route>
-      <Route path="/ordering/categoryC">
-        <MerchandiseCategory number={2} />
-      </Route>
-      <Route path="/ordering/categoryD">
-        <MerchandiseCategory number={3} />
-      </Route>
-      <Route path="/ordering/categoryE">
-        <MerchandiseCategory number={4} />
-      </Route>
-      <Route path="/ordering/categoryF">
-        <MerchandiseCategory number={5} />
-      </Route>
-      <Route path="/ordering/categoryG">
-        <MerchandiseCategory number={6} />
-      </Route> */}
+      {menu.map((shopsArray, index) => (
+        <Route
+          key={`MerchandiseCategory_${shopsArray[0]}`}
+          path={`/ordering/${shopsArray[0]}`}
+        >
+          <NavLink>
+            {menu.map((shops) => (
+              <Category
+                key={`Category_${shops[0]}`}
+                to={`/ordering/${shops[0]}`}
+              >
+                {shops[0]}
+              </Category>
+            ))}
+          </NavLink>
+          <MerchandiseCategory number={index} />
+        </Route>
+      ))}
     </>
   );
 }
