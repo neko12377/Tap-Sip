@@ -92,7 +92,6 @@ const OptionOfShops = styled(Link)`
   }
   @media (max-width: 576px) {
     min-width: 30%;
-
   }
 `;
 

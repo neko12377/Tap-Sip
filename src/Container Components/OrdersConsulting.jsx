@@ -92,7 +92,6 @@ function ordersConsulting({ shoppingList, payOrNot }) {
           ? shoppingList.map(
             (item, index) => (
               <ItemList key={`${item.item}${item.index}`}>
-                {console.log(item)}
                 <CustomerNPay>
                   <Customer>
                     {`訂購人：${item.customer}`}

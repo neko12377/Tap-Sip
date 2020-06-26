@@ -30,11 +30,8 @@ const ItemCategory = styled.div`
   overflow: scroll;
   height: 3rem;
   border-bottom: 1px solid wheat;
-  /* border-radius: 1rem; */
+  border-radius: 1rem;
   margin-bottom: 0.5rem;
-  @media (max-width: 576px) {
-    
-  }
 `;
 
 const Categories = styled(Link)`
@@ -61,10 +58,10 @@ const Categories = styled(Link)`
 
 const ItemsBlock = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  flex-wrap: wrap;
 `;
 
 const Items = styled.div`
@@ -112,7 +109,9 @@ const ItemDetail = styled(ItemName)`
   height: 25%;
 `;
 
-function merchandiseCategory({ number, temporariness, itemNumbers }) {
+function merchandiseCategory({
+  number, temporariness, itemNumbers,
+}) {
   const [showAnnotationBlock, setAnnotationBlock] = useState(false);
 
   return (
