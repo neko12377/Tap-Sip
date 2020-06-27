@@ -100,7 +100,7 @@ const CustomerInfo = styled(Introduction)`
   justify-content: space-between;
   align-items: flex-start;
   padding-left: 2%;
-  overflow: scroll;
+  /* overflow: scroll; */
   @media (max-width: 576px) {
     width: 100%;
     height: 45%;
