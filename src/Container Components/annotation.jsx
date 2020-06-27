@@ -100,11 +100,11 @@ const CustomerInfo = styled(Introduction)`
   justify-content: space-between;
   align-items: flex-start;
   padding-left: 2%;
-  /* overflow: scroll; */
+  overflow: scroll;
   @media (max-width: 576px) {
     width: 100%;
-    height: 45%;
-    min-width: 45%;
+    height: 173px;
+    min-width: 173px;
     border-right: 0;
     border-bottom: 0;
   }
@@ -376,7 +376,7 @@ function annotation({
         <Main>
           <Introduction>
             <Image>
-              暫無圖片
+              暫無圖片test
             </Image>
             <Description>
               {`${name}(${size}) $ ${price}`}
