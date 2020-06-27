@@ -377,7 +377,7 @@ function annotation({
         <Main>
           <Introduction>
             <Image>
-              暫無圖片test
+              暫無圖片
             </Image>
             <Description>
               {`${name}(${size}) $ ${price}`}
