@@ -46,8 +46,8 @@ const Category = styled(Link)`
 const InitialPage = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: center;
+  width: 60%;
   flex-wrap: wrap;
   font-size: 2rem;
   padding: 1rem;
@@ -62,36 +62,58 @@ const InitialPage = styled.div`
   }
 `;
 
+// const OptionOfShops = styled(Link)`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 20%;
+//   min-width: 20%;
+//   height: 8rem;
+//   margin: 0.1rem;
+//   background-color: #4a66a3;
+//   border-bottom: 12px solid #223052;
+//   border-left: 1px solid #223052;
+//   border-right: 1px solid #aaaaaa55;
+//   border-top: 1px solid #aaaaaa55;
+//   border-radius: 1rem;
+//   color: lightblue;
+//   text-decoration: none;
+//   z-index: 1;
+//   &:hover{
+//     transform: translate(0, 4px);
+//     border-left: 5px solid #0f1832;
+//     border-right: 5px solid #0f1832;
+//     border-top: 8px solid #0f1832;
+//     border-bottom: 1px solid #0f1832;
+//     /* box-shadow: 0 -5px 5px white; */
+//     transition: transform 0.8s, border 0.4s, color 0.4s;
+//     color: #71b5cc77;
+//     z-index: 0;
+//   }
+//   @media (max-width: 576px) {
+//     min-width: 30%;
+//   }
+// `;
+
 const OptionOfShops = styled(Link)`
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 20%;
-  min-width: 20%;
-  height: 8rem;
-  margin: 0.1rem;
-  border-bottom: 12px solid #223052;
-  border-left: 1px solid #223052;
-  border-right: 1px solid #aaaaaa55;
-  border-top: 1px solid #aaaaaa55;
-  border-radius: 1rem;
-  color: lightblue;
+  min-width: 100px;
+  height: 3rem;
+  margin: 1rem;
+  padding-left: 0.5rem;
+  border-bottom: 1px solid wheat;
+  border-radius: 0 0 0 1rem;
   text-decoration: none;
-  z-index: 1;
-  &:hover{
-    transform: translate(0, 4px);
-    border-left: 5px solid #0f1832;
-    border-right: 5px solid #0f1832;
-    border-top: 8px solid #0f1832;
-    border-bottom: 1px solid #0f1832;
-    /* box-shadow: 0 -5px 5px white; */
-    transition: transform 0.8s, border 0.4s, color 0.4s;
-    color: #71b5cc77;
-    z-index: 0;
+  color: lightcyan;
+  &:visited {
+    color: lightcyan;
   }
-  @media (max-width: 576px) {
-    min-width: 30%;
+  &:hover {
+    transform: translate(-5px, -5px);
   }
 `;
 
