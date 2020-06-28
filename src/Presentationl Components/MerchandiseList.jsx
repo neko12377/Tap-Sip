@@ -114,6 +114,7 @@ const OptionOfShops = styled(Link)`
   }
   &:hover {
     transform: translate(-5px, -5px);
+    box-shadow: 0 2px 2px wheat;
   }
 `;
 

@@ -83,6 +83,10 @@ const Items = styled.div`
   & input {
     width: 50%;
   }
+  &:hover {
+    transform: translate(0, -10px);
+    box-shadow: 0 5px 5px wheat;
+  }
   @media (max-width: 576px) {
     max-width: 47%;
     min-width: 47%;
