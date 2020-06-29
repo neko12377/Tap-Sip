@@ -10,6 +10,8 @@ import * as actionCreators from '../Actions';
 const Background = styled.section`
   display: flex;
   width: 25%;
+  max-width: 285px;
+  min-width: 270px;
   height: 100%;
   flex-wrap: wrap;
   position: fixed;
