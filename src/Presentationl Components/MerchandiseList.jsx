@@ -57,11 +57,11 @@ const InitialPage = styled.div`
   background-color: #102042;
   overflow: scroll;
   @media (max-width: 576px) {
-    width: 100%;
+    width: 90%;
     margin: 1rem 0.5rem;
-  }
+  } 
 `;
-
+// boutton clicked effect 🚀;
 // const OptionOfShops = styled(Link)`
 //   display: flex;
 //   flex-direction: column;
