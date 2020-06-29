@@ -1,29 +1,36 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
-const InitialPage = styled.div`
+const InitialPage = styled(Link)`
   display: flex;
-  width: 90%;
-  height: 200px;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  font-size: 2rem;
+  top: 90px;
+  position: relative;
+  width: 90%;
+  height: 200px;
   padding: 0.25rem;
   border: 1px solid wheat;
   border-radius: 1rem;
   background-color: #102042;
-  top: 90px;
-  position: relative;
+  font-size: 2rem;
+  color: wheat;
+  text-decoration: none;
+  &:visited {
+    color: wheat;
+  }
   @media (max-width: 576px) {
     width: 100%;
     margin: 1rem 0.5rem;
+    width: 90%;
   }
 `;
 
 export default function () {
   return (
-    <InitialPage>
+    <InitialPage to="/ordering">
       今天想吃/喝什麼？
     </InitialPage>
   );
