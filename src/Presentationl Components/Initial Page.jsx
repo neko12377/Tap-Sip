@@ -10,6 +10,7 @@ const InitialPage = styled(Link)`
   top: 90px;
   position: relative;
   width: 90%;
+  max-width: 600px;
   height: 200px;
   padding: 0.25rem;
   border: 1px solid wheat;

@@ -106,7 +106,7 @@ const ItemName = styled.div`
 const ItemImage = styled(ItemName)`
   height: 50%;
   width: 90%;
-  border: solid 1px wheat;
+  border: solid 1px white;
   border-radius: 1rem;
 `;
 

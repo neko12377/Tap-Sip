@@ -20,7 +20,7 @@ const MainContent = styled.section`
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    max-height: 440px;
+    max-height: 78%;
     top: 60px;
   }
 `;

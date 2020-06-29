@@ -48,16 +48,17 @@ const Category = styled(Link)`
 const InitialPage = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-around;
   width: 90%;
   min-width: 445px;
   flex-wrap: wrap;
   font-size: 1.5rem;
   padding: 1rem;
   margin: 1rem;
-  border: 1px solid wheat;
-  border-radius: 1rem;
-  background-color: #102042;
+  border-bottom: 1px solid wheat;
+  border-right: 1px solid wheat;
+  border-radius: 1rem 1rem 1rem 0;
+  /* background-color: #102042; */
   overflow: scroll;
   @media (max-width: 576px) {
     justify-content: center;
@@ -68,52 +69,55 @@ const InitialPage = styled.div`
   } 
 `;
 // boutton clicked effect 🚀;
-// const OptionOfShops = styled(Link)`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   width: 20%;
-//   min-width: 20%;
-//   height: 8rem;
-//   margin: 0.1rem;
-//   background-color: #4a66a3;
-//   border-bottom: 12px solid #223052;
-//   border-left: 1px solid #223052;
-//   border-right: 1px solid #aaaaaa55;
-//   border-top: 1px solid #aaaaaa55;
-//   border-radius: 1rem;
-//   color: lightblue;
-//   text-decoration: none;
-//   z-index: 1;
-//   &:hover{
-//     transform: translate(0, 4px);
-//     border-left: 5px solid #0f1832;
-//     border-right: 5px solid #0f1832;
-//     border-top: 8px solid #0f1832;
-//     border-bottom: 1px solid #0f1832;
-//     /* box-shadow: 0 -5px 5px white; */
-//     transition: transform 0.8s, border 0.4s, color 0.4s;
-//     color: #71b5cc77;
-//     z-index: 0;
-//   }
-//   @media (max-width: 576px) {
-//     min-width: 30%;
-//   }
-// `;
+/* const OptionOfShops = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  min-width: 20%;
+  height: 8rem;
+  margin: 0.1rem;
+  background-color: #4a66a3;
+  border-bottom: 12px solid #223052;
+  border-left: 1px solid #223052;
+  border-right: 1px solid #aaaaaa55;
+  border-top: 1px solid #aaaaaa55;
+  border-radius: 1rem;
+  color: lightblue;
+  text-decoration: none;
+  z-index: 1;
+  &:hover{
+    transform: translate(0, 4px);
+    border-left: 5px solid #0f1832;
+    border-right: 5px solid #0f1832;
+    border-top: 8px solid #0f1832;
+    border-bottom: 1px solid #0f1832;
+    box-shadow: 0 -5px 5px white;
+    transition: transform 0.8s, border 0.4s, color 0.4s;
+    color: #71b5cc77;
+    z-index: 0;
+  }
+  @media (max-width: 576px) {
+    min-width: 30%;
+  }
+`; */
 
 const OptionOfShops = styled(Link)`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  width: 20%;
-  min-width: 105px;
-  max-width: 105px;
+  align-items: center;
+  width: 22%;
+  min-width: 125px;
+  max-width: 154px;
   height: 3rem;
-  margin: 1rem;
-  padding-left: 0.5rem;
-  border-bottom: 1px solid wheat;
-  border-radius: 0 0 0 1rem;
+  margin: 0.5rem 0.5rem;
+  padding-left: 0.25rem;
+  border: 1px solid wheat;
+  border-bottom: 5px solid wheat;
+  border-right: 2px solid wheat;
+  border-radius: 0 1.5rem 0 1.5rem;
+  background-color: #223052;
   text-decoration: none;
   color: lightcyan;
   &:visited {
@@ -122,6 +126,9 @@ const OptionOfShops = styled(Link)`
   &:hover {
     transform: translate(-5px, -5px);
     box-shadow: 0 2px 2px wheat;
+  }
+  @media (max-width: 576px) {
+    min-width: 110px;
   }
 `;
 
