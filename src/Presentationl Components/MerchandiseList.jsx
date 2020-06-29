@@ -49,7 +49,7 @@ const InitialPage = styled.div`
   justify-content: center;
   width: 60%;
   flex-wrap: wrap;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 1rem;
   margin: 1rem;
   border: 1px solid wheat;

@@ -24,14 +24,14 @@ const Title = styled.div`
 
 const ItemCategory = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 95%;
-  overflow: scroll;
   height: 3rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid wheat;
   border-radius: 1rem;
-  margin-bottom: 0.5rem;
+  overflow: scroll;
 `;
 
 const Categories = styled(Link)`
@@ -41,7 +41,7 @@ const Categories = styled(Link)`
   width: 33%;
   height: 100%;
   text-decoration: none;
-  color: white;
+  color: lightblue;
   font-size: 18px;
   &:visited {
     color: lightblue;
@@ -66,19 +66,19 @@ const ItemsBlock = styled.div`
 
 const Items = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: column;
   max-width: 200px;
   min-width: 200px;
   height: 250px;
-  border-radius: 1rem;
-  background-color: #102042;
-  border: solid 1px wheat;
-  justify-content: space-between;
-  align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  font-size: 1.2rem;
   margin: 0.25rem;
+  border: solid 1px wheat;
+  border-radius: 1rem;
+  background-color: #102042;
+  font-size: 1.2rem;
   cursor: pointer;
   & input {
     width: 50%;

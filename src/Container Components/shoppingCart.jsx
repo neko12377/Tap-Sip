@@ -9,12 +9,14 @@ import * as actionCreators from '../Actions';
 
 const Background = styled.section`
   display: flex;
-  width: 100%;
+  width: 25%;
   height: 100%;
   flex-wrap: wrap;
+  position: fixed;
   @media (max-width: 576px) {
     width: 250px;
     align-items: center;
+    position: static;
   }
 `;
 
