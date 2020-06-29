@@ -39,7 +39,7 @@ const Categories = styled(Link)`
   justify-content: center;
   align-items: center;
   width: 25%;
-  min-width: 25%;
+  min-width: 47px;
   height: 100%;
   text-decoration: none;
   color: lightblue;
