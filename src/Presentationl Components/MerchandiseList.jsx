@@ -6,8 +6,10 @@ import menu from '../menu/menu.json';
 
 const NavLink = styled.nav`
   display: flex;
+  justify-content: space-between;
   width: 95%;
   height: 60px;
+  min-height: 60px;
   margin: 0;
   padding: 0;
   overflow: scroll;
@@ -15,7 +17,7 @@ const NavLink = styled.nav`
   border: 3px solid whitesmoke;
   border-radius: 1rem;
   @media (max-width: 576px) {
-    margin: 0;
+    margin: 1rem 0.5rem;
   }
 `;
 
@@ -23,12 +25,12 @@ const Category = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
-  min-width: 20%;
+  width: 25%;
+  min-width: 25%;
   height: 100%;
   border-radius: 1rem;
   color: lightblue;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-decoration: none;
   &:visited {
     color: lightblue;
@@ -38,16 +40,17 @@ const Category = styled(Link)`
     color: wheat;
   }
   @media (max-width: 576px) {
-    width: 25%;
-    min-width: 25%;
+    width: 33%;
+    min-width: 33%;
   }
 `;
 
 const InitialPage = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  width: 60%;
+  justify-content: flex-start;
+  width: 90%;
+  min-width: 445px;
   flex-wrap: wrap;
   font-size: 1.5rem;
   padding: 1rem;
@@ -57,8 +60,11 @@ const InitialPage = styled.div`
   background-color: #102042;
   overflow: scroll;
   @media (max-width: 576px) {
+    justify-content: center;
+    align-items: center;
     width: 90%;
     margin: 1rem 0.5rem;
+    min-width: 90%;
   } 
 `;
 // boutton clicked effect 🚀;
@@ -101,7 +107,8 @@ const OptionOfShops = styled(Link)`
   justify-content: center;
   align-items: flex-end;
   width: 20%;
-  min-width: 100px;
+  min-width: 105px;
+  max-width: 105px;
   height: 3rem;
   margin: 1rem;
   padding-left: 0.5rem;

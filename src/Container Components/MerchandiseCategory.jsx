@@ -24,7 +24,7 @@ const Title = styled.div`
 
 const ItemCategory = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 95%;
   height: 3rem;
@@ -38,7 +38,8 @@ const Categories = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 33%;
+  width: 25%;
+  min-width: 25%;
   height: 100%;
   text-decoration: none;
   color: lightblue;

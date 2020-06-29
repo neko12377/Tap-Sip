@@ -10,28 +10,34 @@ import * as actionCreators from '../Actions';
 
 const MainContent = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   position: relative;
+  overflow: scroll;
   top: 90px;
   @media (max-width: 576px) {
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    top: 70px;
-    margin-bottom: 4rem;
+    height: 100%;
+    max-height: 440px;
+    top: 60px;
   }
 `;
 
 const MiddleContent = styled.div`
   display: flex;
-  width: 77%;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding-left: 25%;
   @media (max-width: 576px) {
-    width: 100%;
-    justify-content: center;
     flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
   }
 `;
 
@@ -43,7 +49,7 @@ const SideContent = styled.aside`
   @media (max-width: 576px) {
     position: fixed;
     z-index: 2;
-    width: 100%;
+    width: 77%;
     height: 100%;
     min-width: 100%;
     max-width: 100%;
