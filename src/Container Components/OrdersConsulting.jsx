@@ -22,6 +22,7 @@ const ItemList = styled.li`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   width: 45%;
   height: 8rem;
   padding: 1rem;
@@ -73,7 +74,25 @@ const Merchandise = styled(Customer)`
 `;
 
 const CustomizedDetail = styled(Customer)`
+  position: absolute;
+  bottom: 0.5rem;
+  right: 3rem;
+  height: 30%;
+`;
+
+const Change = styled.div`
+  display: flex;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 2rem;
+  width: 3rem;
+  min-width: 2rem;
+  height: 2rem;
+  min-height: 2rem;
+  color: white;
+  cursor: pointer;
 `;
 
 const NotThingInCartYet = styled(ItemList)`

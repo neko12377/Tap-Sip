@@ -10,6 +10,9 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__
   && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
+console.log('%cHere', 'color: lightcyan');
+console.log(store);
+console.log('%cHere', 'color: lightcyan');
 
 export default function () {
   return (

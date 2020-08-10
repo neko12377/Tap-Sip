@@ -135,6 +135,7 @@ const TrashCan = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 20%;
   height: 100%;
   background-color: #e45466;
